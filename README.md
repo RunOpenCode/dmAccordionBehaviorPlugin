@@ -1,4 +1,4 @@
-dmAccordionBehaviorPlugin for Diem Extended
+dmAccordionBehaviorPlugin for Diem Extended 
 ===============================
 
 Author: [TheCelavi](http://www.runopencode.com/about/thecelavi)  
@@ -53,7 +53,41 @@ tags.
 Note `theme` class at `<container>` tag - it will be the name of the theme that
 you have selected in behavior configuration form. In that matter you can style 
 the accordion.
-	
+
+Configuration and theming
+---------------
+In `dmAccordionBehaviorPlugin/config/dm/config.yml` are configuration parameters for this behavior.
+
+	default:
+	  dmAccordionBehavior:
+	    defaults: 
+	      inner_target: ''
+	      theme: default
+	      event: click_open_close
+	      colapsable: true
+	      initialy_open: 1 
+	      animation: slide
+	      easing: jswing
+	      duration: 500
+	    themes: 
+	      default: 'dmAccordionBehaviorPlugin.default' 
+
+If you have download the behavior via Github, you can modify this file. If you have installed
+it via Composer, then you have to use Symfony config cascade to override this settings.
+
+Section `defaults` contains default settings for behavior, which behavior form initially
+displays. If you want some other settings to be shown as default, this is the place for
+change.
+
+Section `themes` is for theme, and it gets configured as `theme_key: path_to_css_file`. 
+If user in behavior form selects a `default` theme, the accordiong view HTML structure will be:
+
+	<div class="dmAccordionBehavior default">
+    	.... titles and contents
+	</div>
+
+Note that a `default` class is added, that is, the theme key. Of course, the theme CSS file
+will be loaded as well. So, for you is just to theme it.
 	
 	
 	
