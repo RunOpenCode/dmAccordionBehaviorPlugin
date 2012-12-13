@@ -1,0 +1,14 @@
+### Default settings for the Accordion Front Behavior
+default:
+  dmAccordionBehavior:
+    defaults: # Default settings for behavior
+      inner_target: ''
+      theme: default
+      event: click_open_close
+      colapsable: true
+      initialy_open: 1 
+      animation: slide
+      easing: jswing
+      duration: 500
+    themes: 
+      default: 'dmAccordionBehaviorPlugin.default' # From assets.yml - U can use a path instead

@@ -1,0 +1,6 @@
+js:
+  dmAccordionBehaviorPlugin:
+    launch: dmAccordionBehavior.pack.min
+css:
+  dmAccordionBehaviorPlugin:
+    default: default
