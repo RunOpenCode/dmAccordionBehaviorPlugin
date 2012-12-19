@@ -75,29 +75,38 @@ class dmAccordionBehaviorForm extends dmBehaviorBaseForm {
             'required' => true
         ));
         
-        $this->getWidgetSchema()->setLabels(array(
-            'initialy_open' => 'Initialy open'
-        ));
+        $this->getWidgetSchema()->setLabels(sfConfig::get('dm_dmAccordionBehavior_labels'));        
+        $this->getWidgetSchema()->setHelps(sfConfig::get('dm_dmAccordionBehavior_helps'));
         
-        $this->getWidgetSchema()->setHelps(array(            
-            'duration' => 'Duration of the animation in ms',
-            'colapsable' => 'Opening one tab will close others',
-            'initialy_open' => 'Enter index of initialy opened tab(s) separated with semicolon (;), or nothing for all to be closed.'
-        ));
-        
-        $defaults = sfConfig::get('dm_dmAccordionBehavior_defaults');
-        
-        if (is_null($this->getDefault('inner_target'))) $this->setDefault ('inner_target', $defaults['inner_target']);
-        if (is_null($this->getDefault('initialy_open'))) $this->setDefault ('initialy_open', $defaults['initialy_open']);
-        if (is_null($this->getDefault('colapsable'))) $this->setDefault ('colapsable', $defaults['colapsable']);
-        if (is_null($this->getDefault('theme'))) $this->setDefault ('theme', $defaults['theme']);
-        if (is_null($this->getDefault('event'))) $this->setDefault ('event', $defaults['event']);
-        if (is_null($this->getDefault('animation'))) $this->setDefault ('animation', $defaults['animation']);
-        if (is_null($this->getDefault('easing'))) $this->setDefault ('easing', $defaults['easing']);
-        if (is_null($this->getDefault('duration'))) $this->setDefault ('duration', $defaults['duration']);
-        
+        if (is_null($this->getDefault('inner_target'))) {
+            $this->setDefaults(sfConfig::get('dm_dmAccordionBehavior_defaults'));
+        }
         
         parent::configure();
+    }
+    
+    public function getStylesheets()
+    {
+        return array(
+            'lib.ui-tabs',
+        );
+    }
+
+    public function getJavascripts()
+    {
+        return array(
+            'lib.ui-tabs',
+            'core.tabForm',
+            'dmAccordionBehaviorPlugin.form'
+        );
+    }
+
+    protected function renderContent($attributes)
+    {
+        return $this->getHelper()->renderPartial('dmBehavior', 'forms/dmAccordionBehavior', array(
+                'form' => $this,
+                'baseTabId' => 'dm_behavior_dmaccordion_' . $this->dmBehavior->getId()
+            ));
     }
     
 }

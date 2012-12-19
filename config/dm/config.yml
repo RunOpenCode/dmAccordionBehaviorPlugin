@@ -10,5 +10,11 @@ default:
       animation: slide
       easing: jswing
       duration: 500
+    labels:
+      initialy_open: Initialy open      
+    helps:
+      duration: Duration of the animation in ms
+      colapsable: Opening one tab will close others
+      initialy_open: Enter index of initialy opened accordion(s) separated with semicolon (;), or nothing for all to be closed.
     themes: 
       default: 'dmAccordionBehaviorPlugin.default' # From assets.yml - U can use a path instead

@@ -1,6 +1,7 @@
 js:
   dmAccordionBehaviorPlugin:
     launch: dmAccordionBehavior.pack.min
+    form: form/dmAccordionBehaviorForm
 css:
   dmAccordionBehaviorPlugin:
     default: default
